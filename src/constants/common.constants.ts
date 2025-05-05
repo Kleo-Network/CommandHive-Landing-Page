@@ -2,11 +2,11 @@ import { MenuItem } from '../models/menu-item';
 
 export const menuItems: MenuItem[] = [
     {
-        link: '#',
+        link: '/',
         title: 'Home',
     },
     {
-        link: '#',
+        link: '/about',
         title: 'About Us',
     },
     {

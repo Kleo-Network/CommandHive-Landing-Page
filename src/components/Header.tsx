@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState } from 'react';
 import { BiMenu } from 'react-icons/bi';
+import { Link } from 'react-router-dom';
 
 import Logo from '../assets/logo.webp';
 import { menuItems } from '../constants/common.constants';
@@ -47,12 +48,12 @@ export const Header: React.FC = () => {
                             className="text-sm flex flex-col font-anton text-center gap-y-2 md:text-base lg:hidden"
                         >
                             {menuItems.slice(0, menuItems.length - 1).map((item, index) => (
-                                <a
-                                    href={item.link}
+                                <Link
+                                    to={item.link}
                                     key={index}
                                 >
                                     {item.title}
-                                </a>
+                                </Link>
                             ))}
                             <button className="w-fit mx-auto flex items-center bg-primary text-black font-anton text-sm px-3 py-1 rounded gap-x-[3px] mt-5 md:mt-7 md:text-base md:gap-x-1 xl:text-lg xl:mt-8 xl:px-4 xl:rounded-md xl:py-2 2xl:text-xl 2xl:mt-10 2xl:rounded-lg">
                                 LAUNCH APP
@@ -80,13 +81,13 @@ export const Header: React.FC = () => {
                     </div>
                     <nav className="z-10 flex items-center gap-x-8 py-3 pr-6 xl:gap-x-12 xl:py-4 xl:pr-12">
                         {menuItems.slice(0, menuItems.length - 1).map((item, index) => (
-                            <a
+                            <Link
                                 key={index}
-                                href={item.link}
+                                to={item.link}
                                 className="text-sm font-medium xl:text-base 2xl:text-lg"
                             >
                                 {item.title}
-                            </a>
+                            </Link>
                         ))}
                     </nav>
                     <div className="bg-white header-navbar absolute top-0 -right-11 w-44 h-full z-9 lg:w-[172px] xl:w-56 xl:-right-14"></div>

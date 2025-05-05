@@ -1,4 +1,6 @@
 import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { About } from './about';
 import { FAQs } from './components/FAQs';
 import { Features } from './components/Features';
 import { Footer } from './components/Footer';
@@ -8,10 +10,9 @@ import { HowCommandHiveWorks } from './components/HowCommandHiveWorks';
 import { Partners } from './components/Partners';
 import { UserReviews } from './components/UserReviews';
 
-const App: React.FC = () => {
+const HomePage: React.FC = () => {
     return (
-        <main className="w-screen min-h-screen relative">
-            <Header />
+        <>
             <HeroSection />
             <Partners />
             <HowCommandHiveWorks />
@@ -19,7 +20,21 @@ const App: React.FC = () => {
             <UserReviews />
             <FAQs />
             <Footer />
-        </main>
+        </>
+    );
+};
+
+const App: React.FC = () => {
+    return (
+        <BrowserRouter>
+            <main className="w-screen min-h-screen relative">
+                <Header />
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/about" element={<About />} />
+                </Routes>
+            </main>
+        </BrowserRouter>
     );
 };
 
